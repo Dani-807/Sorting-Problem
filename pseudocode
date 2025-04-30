@@ -1,0 +1,49 @@
+What I want the code to do:
+    Sort through given numbers and determine if the number is a prime number or not
+    "Yes," if prime. "No," if not a prime.
+
+How?
+    Lets say the given numbers are numbers 1 to 50
+    Since a prime number has a factor of 1 and the number itself without any remainders
+    Since we already know that 1 is not a prime number then if n < 2 then print, "no"
+    We check if the number by trial division:
+        Divide n by 2 and if its divisible by 2 without a remainder it is immediately not a prime number
+        If otherwise it is a prime number
+
+Okay the method above is not enough to determine if it is a prime number not
+    Why?
+        Because its only checking it if its an even number
+
+
+How do factors work?
+    If n is not a prime then it can be factored as:
+        n = a x b
+
+        Where a and b are factors of n
+    
+    So can we use the square root of n and just find out if it has any factors below that?
+        Lets take the equation above: 
+            (I hate math)
+                If both a and b is greater than the square root of n
+                Then their product a x b would be greater than n (not possible)
+
+            So for checking whether n is not a prime its enough to look for possible a values up to the square root of n
+              - so if a divides with n and it has no remainder then there should be a partner which is b
+              therefore n is not a prime
+
+
+So there fore the code should work like this:
+
+For each n from 1 to 50 do:
+    if n < 2 then 
+        print "no"
+    else
+        let isPrime = True
+        For i = 2 to squar root of n do:
+            if n % i == 0 then
+                let isPrime = False
+                done
+        if isPrime then
+            print "yes"
+        else
+            print "no"
